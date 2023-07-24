@@ -1,30 +1,15 @@
 import { useState } from "react";
-import { Child1 } from "./Child1";
-import { Child2 } from "./Child2";
 import { getRandomFruit } from "../utils/getRandomFruit";
-import { ColorItem } from "./ColorItem";
+import { Child1 } from "./Child1";
 
 export const Parent = () => {
-  // states related to left section
   const [fruitCounter, setFruitCounter] = useState(0);
-  const [fruitType] = useState(() => getRandomFruit());
-
-  // states related to right section
-  const [colors, setColors] = useState<string[]>([]);
-  const [newColor, setNewColor] = useState("");
-
-  const addColor = (colorToAdd: string) => {
-    setColors((c) => [...c, colorToAdd]);
-  };
-
-  const deleteColor = (colorToDelete: string) => {
-    setColors((c) => c.filter((item) => item !== colorToDelete));
-  };
+  const [fruitType] = useState(getRandomFruit());
 
   return (
     <div className="frame violet parent">
       <h2 className="title">Parent</h2>
-      <section className="left-section">
+      <div className="fruit-counter">
         <p>
           {fruitType}: {fruitCounter}
         </p>
@@ -34,20 +19,8 @@ export const Parent = () => {
         <button onClick={() => setFruitCounter((counter) => counter - 1)}>
           -
         </button>
-      </section>
-      <section className="right-section">
-        <ul>
-          {colors.map((color) => (
-            <ColorItem key={color} color={color} deleteColor={deleteColor} />
-          ))}
-        </ul>
-      </section>
+      </div>
       <Child1 fruitCounter={fruitCounter} fruitType={fruitType} />
-      <Child2
-        newColor={newColor}
-        setNewColor={setNewColor}
-        addColor={addColor}
-      />
     </div>
   );
 };
