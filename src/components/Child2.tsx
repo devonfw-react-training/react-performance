@@ -1,12 +1,12 @@
-import { ChangeEvent, SyntheticEvent } from "react";
+import { ChangeEvent, SyntheticEvent, useState } from "react";
 
 type IProps = {
-  newColor: string;
-  setNewColor: React.Dispatch<React.SetStateAction<string>>;
   addColor: (colorToAdd: string) => void;
 };
 
-export const Child2 = ({ newColor, setNewColor, addColor }: IProps) => {
+export const Child2 = ({ addColor }: IProps) => {
+  const [newColor, setNewColor] = useState("");
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setNewColor(e.target.value);
   };

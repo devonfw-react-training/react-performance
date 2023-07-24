@@ -11,7 +11,6 @@ export const Parent = () => {
 
   // states related to right section
   const [colors, setColors] = useState<string[]>([]);
-  const [newColor, setNewColor] = useState("");
 
   const addColor = (colorToAdd: string) => {
     setColors((c) => [...c, colorToAdd]);
@@ -43,11 +42,7 @@ export const Parent = () => {
         </ul>
       </section>
       <Child1 fruitCounter={fruitCounter} fruitType={fruitType} />
-      <Child2
-        newColor={newColor}
-        setNewColor={setNewColor}
-        addColor={addColor}
-      />
+      <Child2 addColor={addColor} />
     </div>
   );
 };
