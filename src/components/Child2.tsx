@@ -1,10 +1,10 @@
-import { ChangeEvent, SyntheticEvent, useState } from "react";
+import { ChangeEvent, SyntheticEvent, memo, useState } from "react";
 
 type IProps = {
   addColor: (colorToAdd: string) => void;
 };
 
-export const Child2 = ({ addColor }: IProps) => {
+export const Child2 = memo(({ addColor }: IProps) => {
   const [newColor, setNewColor] = useState("");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -27,4 +27,4 @@ export const Child2 = ({ addColor }: IProps) => {
       <button type="submit">Submit</button>
     </form>
   );
-};
+});

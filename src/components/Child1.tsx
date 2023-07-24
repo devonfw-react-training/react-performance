@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 import { Grandchild } from "./Grandchild";
 
 type IProps = {
@@ -6,7 +6,7 @@ type IProps = {
   fruitType: string;
 };
 
-export const Child1 = React.memo(({ fruitCounter, fruitType }: IProps) => {
+export const Child1 = memo(({ fruitCounter, fruitType }: IProps) => {
   let fruits = "";
   for (let i = 0; i < fruitCounter; i++) {
     fruits = fruits + fruitType;
