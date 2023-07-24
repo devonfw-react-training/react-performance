@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Child1 } from "./Child1";
 import { Child2 } from "./Child2";
 import { getRandomFruit } from "../utils/getRandomFruit";
@@ -12,9 +12,9 @@ export const Parent = () => {
   // states related to right section
   const [colors, setColors] = useState<string[]>([]);
 
-  const addColor = (colorToAdd: string) => {
+  const addColor = useCallback((colorToAdd: string) => {
     setColors((c) => [...c, colorToAdd]);
-  };
+  }, []);
 
   const deleteColor = (colorToDelete: string) => {
     setColors((c) => c.filter((item) => item !== colorToDelete));
