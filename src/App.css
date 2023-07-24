@@ -2,6 +2,34 @@
   margin: 1rem;
 }
 
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.title {
+  flex-basis: 100%;
+}
+
+.left-section,
+.right-section {
+  flex-basis: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.left-section button {
+  width: 40px;
+}
+
+.left-section p {
+  text-align: center;
+  width: 100%;
+}
+
 .frame {
   border: 2px #000 solid;
   margin: 2rem;
@@ -15,8 +43,22 @@
   height: 30rem;
 }
 
+.input {
+  margin: 1rem;
+}
+
+.color-item {
+  margin: 0.4rem;
+}
+
+.color-item button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .violet {
-  background-color: #7e60bf;
+  background-color: #b39ce4;
 }
 .blue {
   background-color: #0487d9;

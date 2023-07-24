@@ -1,19 +1,21 @@
+import React from "react";
 import { Grandchild } from "./Grandchild";
 
 type IProps = {
-  bananaCounter: number;
+  fruitCounter: number;
+  fruitType: string;
 };
 
-export const Child1 = ({ bananaCounter }: IProps) => {
-  let bananas = "";
-  for (let i = 0; i < bananaCounter; i++) {
-    bananas = bananas + "🍌";
+export const Child1 = React.memo(({ fruitCounter, fruitType }: IProps) => {
+  let fruits = "";
+  for (let i = 0; i < fruitCounter; i++) {
+    fruits = fruits + fruitType;
   }
   return (
     <div className="frame blue">
-      <p>Child 1</p>
-      <p>{bananas}</p>
+      <h2>Child 1</h2>
+      <p>{fruits}</p>
       <Grandchild />
     </div>
   );
-};
+});
